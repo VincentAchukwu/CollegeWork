@@ -1,0 +1,36 @@
+JMP START
+DB 70
+ORG 50
+DB FB	; 0
+DB 0B	; 1
+DB B7	; 2
+DB 9F	; 3
+DB 4F	; 4
+DB DD	; 5
+DB FD	; 6
+DB 8B	; 7
+DB FF	; 8
+DB CF   ; 9
+
+
+
+START:
+	MOV BL,50
+
+LOOP:
+	STI
+	CMP BL,5A
+	JZ ENDING
+	JMP LOOP
+
+ORG 70
+	CLI
+	MOV AL,[BL]
+	OUT 02
+	SUB AL,1
+	OUT 2
+	INC BL
+	IRET
+
+ENDING:
+	END

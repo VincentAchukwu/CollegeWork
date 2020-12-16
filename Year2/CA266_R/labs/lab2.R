@@ -1,0 +1,8 @@
+attach(sleep)
+summary(sleep)
+par (mfrow = c(2,2))
+boxplot(extra~group, border = "turquoise", xlab = "group", ylab = "hours", main = "Sleep Test", col = "purple")
+hist(extra[group==1],border = "turquoise", breaks = 5, main = "Group 1", col = "red")
+hist(extra[group==2],border = "turquoise", breaks = 5, main = "Group 2", col = "blue")
+plot(extra[group==1], extra[group==2], col = "red")
+stem(extra)

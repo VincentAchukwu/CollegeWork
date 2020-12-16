@@ -1,0 +1,24 @@
+hamlet/act1.html:In which the majesty of buried Denmark<br>
+hamlet/act1.html:Than is the throne of Denmark to thy father.<br>
+hamlet/act1.html:From whence though willingly I came to Denmark,<br>
+hamlet/act1.html:And let thine eye look like a friend on Denmark.<br>
+hamlet/act1.html:Be as ourself in Denmark. Madam, come;<br>
+hamlet/act1.html:No jocund health that Denmark drinks to-day,<br>
+hamlet/act1.html:Than the main voice of Denmark goes withal.<br>
+hamlet/act1.html:<p class="speech">Something is rotten in the state of Denmark.</p>
+hamlet/act1.html:A serpent stung me; so the whole ear of Denmark<br>
+hamlet/act1.html:Let not the royal bed of Denmark be<br>
+hamlet/act1.html:At least I&#8217;m sure it may be so in Denmark:</p>
+hamlet/act1.html:all Denmark<br>
+hamlet/act2.html:<p class="speech">Denmark&#8217;s a prison.</p>
+hamlet/act2.html:wards and dungeons, Denmark being one o&#8217; the worst.</p>
+hamlet/act2.html:Denmark, and those that would make mows at him while
+hamlet/act2.html:comest thou to beard me in Denmark? What, my young
+hamlet/act3.html:himself for your succession in Denmark?</p>
+hamlet/act4.html:"Scene IV. A plain in Denmark.">
+hamlet/act4.html:<h4>Scene IV. A plain in Denmark.</h4>
+hamlet/act4.html:<p class="speech">Where is the beauteous majesty of Denmark?</p>
+hamlet/act5.html:<p class="speech">Why, here in Denmark: I have been sexton here,
+hamlet/act5.html:Importing Denmark&#8217;s health and England&#8217;s too,<br>
+hamlet/act5.html:Denmark.</p>
+hamlet/act5.html:In Denmark&#8217;s crown have worn. Give me the cups;<br>

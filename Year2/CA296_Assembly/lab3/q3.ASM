@@ -1,0 +1,10 @@
+MOV AL,[00]	;MOVE [00] TO AL
+MOV BL,[08]	;MOVE [08] TO BL
+
+LOOP:
+	ADD AL,BL	;ADD BL INTO AL
+	DEC BL		;DECREMEMT BL
+	JNS LOOP	;JUMP TO LOOP WHILE NOT ZERO FLAG
+	END
+
+;instantly becomes negative number....

@@ -1,0 +1,4 @@
+SELECT CountryCode, COUNT(Name)
+FROM City
+GROUP BY CountryCode
+ORDER BY COUNT(Name) DESC

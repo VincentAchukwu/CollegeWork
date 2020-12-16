@@ -1,0 +1,222 @@
+/* Style Sheet for eBooks@Adelaide web books
+Copyright 2004 Stephen G. Thomas <stephen.thomas@adelaide.edu.au>
+Last update: Thu Sep 30 14:24:19 2004
+A detailed description of this style sheet can be found online at
+http://etext.library.adelaide.edu.au/faq/presentation.html
+*/
+@media screen {
+html {  background-color: #999; }
+}
+body { color:#000; background-color:#fff; }
+body { width:33em; }
+body {  margin-left:3em; margin-right:2em; }
+body { max-width:33em; margin:1em auto; padding:3em 3em 1em 3em; }
+p { text-align:justify; line-height:140%; }
+h1,h2,h3,h4,h5,h6 { text-align: center; }
+h1 { font-size: 2em; font-weight: bold; }
+h2 { font-size: 1.6em; font-weight: bold; }
+h3 { font-size: 1.2em; font-weight: bold; margin-top:3em; }
+h4 { font-size: 1em; font-weight: bold; }
+h5 { font-size: 1em; font-weight: bold; }
+h6 { font-size: 1em; font-weight: normal; font-style: italic; }
+div.section { margin-bottom:3em; }
+hr { color:#ddd; background-color:#fff; }
+a:link    {
+	color:#00f; background-color:#fff;
+	text-decoration:none; }
+a:active  {
+	color:#f00; background-color:#fff;
+	text-decoration:none; }
+a:visited {
+	color:#909; background-color:#fff;
+	text-decoration:none; }
+
+div.titlepage { margin-top:1em; text-align:center; font-weight:bold; }
+div.titlepage p { margin-top:2em;
+	text-align:center; line-height:140%; }
+div.titlepage h1 { margin-top:2em; margin-bottom:0em; }
+div.titlepage h2 { margin-top:2em; margin-bottom:0em; }
+div.titlepage h3 { margin-top:2em; margin-bottom:0em; }
+div.titlepage h4 { margin-top:2em; margin-bottom:0em; }
+div.titlepage hr { margin-top:3em; margin-bottom:1.5em; }
+div.titlepage p.imprint { text-align:center; font-style:italic; }
+@media print {
+div.titlepage p.imprint { margin-top:100%; }
+}
+div.dochead { text-align: center; }
+div.dochead h2 {
+        font-family:sans-serif;
+        font-weight:normal;
+        font-size:1em;
+        font-style:normal;
+        color:gray;
+}
+div.footnotes { font-size:0.9em; text-indent:0;
+        margin-left:1em; margin-right:1em;
+        border-top:1pt solid gray; padding:2pt;
+}
+div.footnote { font-size:.9em; text-indent:0; }
+.note { font-size:.9em; text-indent:0;
+        margin-left:1em; margin-right:1em;
+        border:1pt solid gray; padding:2pt;
+}
+span.inline-note { font-size:.9em; color:gray; }
+span.marginal-note { font-size: .9em; font-style:italic; }
+span.popup-note, abbr, acronym {
+        border:1px dotted gray; cursor:help; }
+@media screen {
+.screen-note { 
+	font-size:.9em; text-indent:0;
+	margin-left:1em; margin-right:1em;
+	border:1pt solid gray; padding:2pt;
+}
+}
+@media print {
+.screen-note { display:none; }
+}
+div.quote p,
+p.quote,
+blockquote {
+        font-style:normal;
+        margin-left:1em; margin-right:1em; }
+.epigraph { text-align:center; font-style:italic; }
+
+div.inscription { text-align: center; font-variant: small-caps; }
+div.inscription p { text-align: center; font-variant: small-caps; }
+p.inscription { text-align: center; font-variant: small-caps; }
+div.notice { border:1px solid; padding:1em;
+        margin-left:1em; margin-right:1em; }
+
+div.notice p { text-align:center; font-weight:bold; }
+div.dedication p { text-align: center; }
+p.dedication { text-align: center; }
+
+div.rubric p { text-align: center; font-style:italic; }
+p.rubric { text-align: center; font-style: italic; }
+
+.abstract {
+        font-style:italic; font-size:.9em;
+        margin-left:1em; margin-right:1em; }
+
+.precis {
+        font-variant:small-caps; font-size:.9em;
+        margin-left:1em; margin-right:1em; }
+
+div.epigraph p { text-align:center; font-style:italic; }
+p.epigraph { text-align:center; font-style:italic; }
+
+div.colophon p { 
+	font-family:sans-serif; font-size:.9em;
+	color:#666; background:#ffffff;
+	text-align:center;
+}
+.letter-typed {
+        font-family:monospace; font-style:normal;
+        margin-left:1em; margin-right:1em;
+}
+.letter-written {
+        font-family:cursive;
+        margin-left:1em; margin-right:1em;
+}
+div.letter-written p { text-align:left; }
+.typed { font-family:monospace; }
+.written { font-family:cursive; }
+.speaker { font-weight:bold; font-variant:small-caps; }
+
+.speech { margin-left:1em; }
+
+.stage { font-style:italic; }
+div.poem { font-style: normal; }
+div.poem p { text-align: left; line-height: 140%; }
+div.poem pre {
+	font-family:serif;
+	text-align:left; line-height:140%; }
+
+div.canto { font-style: normal; }
+div.canto p { line-height: 140%; }
+
+.verse { text-align:left; margin-left:2em; }
+.stanza { text-align:left; margin-left:2em; }
+
+.chorus { margin-left:4em; font-style:italic; }
+span.vln { float:right; font-size:.8em; }
+div.navigation {
+        font-family: sans-serif;
+        font-size: .9em;
+        text-align: center;
+        text-indent: 0;
+}
+div.navigation p {
+        font-size: .9em;
+        text-align: center;
+        text-indent: 0;
+}
+
+div.docinfo {
+        font-family: sans-serif;
+        font-size: .9em;
+        color: #666;
+        background-color: #fff;
+        text-align: center;
+}
+div.docinfo p { text-align:center; }
+
+div.docinfo p a {
+        font-family: sans-serif;
+        color: #666; background-color: #fff;
+        text-decoration: underline;
+}
+div.docinfo p a:visited {
+        font-family: sans-serif;
+        color: #666; background-color: #fff;
+        text-decoration: underline;
+}
+div.docinfo p a:hover {
+        font-family: sans-serif;
+        color: #f00; background-color: #fff;
+        text-decoration: underline;
+}
+
+div.docinfo p.citation {
+        text-align:left; margin:1em 2em; border:1px solid gray;
+        padding:1em;
+}
+a.bm, a.bm:link, a.bm:visited { color:black; text-decoration:none; }
+a.bm:active, a.bm:hover { color:red; }
+.illustration, div.illustration p {
+	text-align:center; font-size:.9em; font-style:small-caps;
+}
+.left { float: left; }
+.right { float: right; }
+.center { text-align: center; }
+.clear { clear: both; }
+.border { border:1px solid; padding:1em; }
+cite { text-decoration: underline; font-style: normal; }
+li { margin-top:.5em; }
+sup { font-size:.7em }
+.transition { margin:2em 0; text-align:center; }
+div.pre { font-family:monospace; text-align:left }
+pre { font-family:monospace; text-align:left }
+span[lang] { font-size:larger; }
+@media print {
+div.frontmatter { page-break-after:always; }
+div.titlepage { page-break-after:always; }
+div.titlepage hr { display:none; }
+div.contents { page-break-after:always; }
+div.contents hr { display:none; }
+div.docinfo { page-break-after:always; }
+div.docinfo hr { display:none; }
+div.dedication { page-break-after:always; }
+div.preface { page-break-after:always; }
+div.introduction { page-break-after:always; }
+div.chapter { page-break-after:always; }
+div.act { page-break-after:always; }
+div.appendix { page-break-after:always; }
+div.navigation { display:none; }
+h3,h4 { page-break-after:avoid; }
+}
+@media screen {
+div.contents { border-top:1px solid gray; }
+div.docinfo { border-top:1px solid gray; }
+div.navigation { border-top:1px solid gray; }
+}

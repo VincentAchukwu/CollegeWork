@@ -1,0 +1,246 @@
+/*	Generic style sheet for Library web pages, for any browser
+	Based on the Uni standard.
+	Contains no absolute font size.
+	Last change: 17 March 2004, by Steve Thomas
+*/
+
+@media screen {
+html { background-color:#999; }
+body { width:55em; }
+}
+body {
+	margin:auto;
+	color:black; background-color:white;
+	font-family:sans-serif;
+}
+
+tt, pre {
+    font-weight:normal;
+    font-family:monospace;
+}
+
+h1,h2,h3,h4,h5,h6 { margin-bottom:0px; }
+/* h1 { color:#003366; } */
+h1,h2,h3,h4,h5,h6 { color:#666666; }
+h1 { font-size:1.6em; }
+h2 { font-size:1.4em; font-weight:bold; }
+h3 { font-size:1.2em; font-weight:bold; }
+h4 { font-weight:bold; }
+h5 { font-weight:bold; }
+h6 { font-weight:bold; }
+
+table { border-color:white; }
+td { border-color:white; }
+th { text-align:left; font-weight:bold; color:black; background-color:#ccc; }
+th.bold { color:white; background-color:black; }
+
+table.border { border:1px; }
+table.noborder { border:0; }
+
+hr { color:#999999; }
+
+/* hr rules only used for old browsers */
+hr.hidden { display:none; }
+
+.red { color:red; }
+
+/* a:link, a:visited { text-decoration:none; color:#003366; } */
+a:hover, a:active { color:#999900; }
+
+.secnav, tr.secnav, td.secnav, span.secnav,
+a.secnav, a.secnav:link, a.secnav:visited {
+    font-weight:bold;
+    text-decoration:none;
+    color:#036;
+}
+a.secnav:active, a.secnav:hover { color:#999900; }
+
+.secnav2, tr.secnav2, td.secnav2, span.secnav2,
+a.secnav2, a.secnav2:link, a.secnav2:visited {
+    font-weight:normal;
+    font-size:.9em;
+    text-decoration:none;
+    color:#003366;
+}
+a.secnav2:active, a.secnav2:hover { color:#999900; }
+
+.caption, tr.caption, td.caption, span.caption {
+    font-size:.9em;
+    color:#666666;
+}
+
+a.caption, a.caption:link, a.caption:visited { color:#0000FF; }
+
+a.caption:active, a.caption:hover { color:#999900; }
+
+.breadcrumb, tr.breadcrumb, td.breadcrumb, span.breadcrumb,
+a.breadcrumb, a.breadcrumb:link, a.breadcrumb:visited {
+    font-size:.9em;
+    font-family:sans-serif;
+    color:#0000FF;
+    text-decoration:none;
+}
+a.breadcrumb:active, a.breadcrumb:hover { color:#999900; }
+
+.news, tr.news, td.news, span.news, a.news, a.news:link, a.news:visited {
+    font-size:.9em;
+    font-family:sans-serif;
+    text-decoration:underline;
+}
+
+
+img { border:0; }
+
+/* --
+	Head section: the page banner.
+-- */
+
+div#head-section { margin:0px; }
+
+table#toplinks {
+	padding: 0 1em;
+	height:1.2em;
+	color:white; background-color:black;
+	font-weight:bold;
+}
+
+#toplinks a { color:white; text-decoration:none; }
+#toplinks a:active { color:#fc3; }
+#toplinks a:hover { color:#fc3; }
+
+#banner { padding: 0 1em;
+	background-color:#369; border-bottom:1px solid red;
+	height:85px; }
+
+#imagebar { clear:both; padding:0px 1em 0 0; }
+
+#funklet { font-size: .9em; }
+
+/* --
+	Mid section: the "body" of the document.
+	Note that the screen layout and print layout are different: on
+	the screen, we have a wide content area with a side-bar with
+	site menu and contact details. When printed, the site menu is
+	not printed, and contact details are printed after the content
+	(i.e. there's no side bar).
+-- */
+
+div#mid-section { margin-top:1em; }
+
+@media screen {
+div#mid-content { float:right; width:40em; }
+div#mid-sidebar { margin-left:1em; padding: 1em 0; width:13em; }
+}
+
+/* Content Section */
+
+div#content {
+	margin:auto;
+	width:35em;
+	text-align:left;
+	line-height:140%;
+        }
+
+div#content p { text-align:justify; line-height:140%; }
+
+div#content dt { font-weight:bold; margin-bottom:1em; }
+
+div#content dd { text-align:justify; line-height:140%; margin-bottom:1em; }
+
+div#content li { margin-top:0.5em; }
+
+div#content img { margin-left:1em; }
+
+/* --
+	Site menu is implemented as a simple HTML list of links.
+	But the standard bullets are replaced with a simple vertical
+	line.
+-- */
+
+div#menu { margin-bottom:2em; }
+div#menu a:link,
+div#menu a:visited { text-decoration:none; color:#036; }
+div#menu a:active,
+div#menu a:hover { color:#990; }
+
+div#menu p { font-weight:bold; margin-top:0; margin-bottom:.5em; }
+
+div#menu ul {
+	list-style:none;
+	margin:0.5em 0;
+	padding:0;
+	border-left:1px solid gray;
+	}
+	
+div#menu li { margin-left:10px; font-size:.9em; line-height:120%; }
+
+/* --
+	Contact section: stylishly gray, smaller font size.
+-- */
+
+div#contact { font-size:.9em; color:#666; }
+div#contact a { color:#666; }
+div#contact a:active { color:#990; text-decoration:underline; }
+div#contact a:hover { color:#990; text-decoration:underline; }
+
+/* --
+	Foot section: the page footer.
+-- */
+
+/* Foot section needs clear:both because of float on content */
+div#foot-section {
+	clear: both;
+	margin-top: 1em;
+	border-top: 1px dotted gray;
+	border-bottom: 1px dotted gray;
+	padding: 10px 1em;
+	font-size: .9em;
+	color: #666; background-color: #ccc;
+	}
+
+div#foot-section a:link,
+div#foot-section a:visited { color:#666; text-decoration:underline; }
+div#foot-section a:active,
+div#foot-section a:hover { color:red; }
+
+/* --
+	Conformance section: contains image links to W3 validation and a
+	note claiming conformance to standards.
+-- */
+
+div#conformance-section {
+	clear:both;
+	padding: 1em 1em;
+	font-size: .9em;
+	color:#666;
+}
+
+div#conformance-section a:link,
+div#conformance-section a:visited { color:#666; text-decoration:underline; }
+div#conformance-section a:active,
+div#conformance-section a:hover { color:red; }
+
+@media all {
+div#conformance-section img { border:0; }
+}
+
+/*
+#valid-html img { border:0;width:88px;height:31px; }
+#valid-css img { border:0;width:88px;height:31px; }
+*/
+
+/* Printing -- don't include menu or toplinks */
+
+@media print {
+#toplinks { display:none; }
+#banner { background-color:#369; }
+div#menu { display:none; }
+div#oa-logo { display:none; }
+div#conformance-section { display:none; }
+div#contact { margin-top:2em; border-top:1px solid gray; }
+div#foot-section { background-color:white; border-top:1px solid gray; }
+}
+
+@page { size: portrait; margin-left: 3cm; }
+
+/* End of this style sheet */

@@ -1,1 +1,1 @@
-# CA266_R
+# CA266 R Programming (Probability & Statistics)

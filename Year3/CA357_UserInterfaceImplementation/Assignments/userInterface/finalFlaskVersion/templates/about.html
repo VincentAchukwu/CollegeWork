@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>About Page</title> 
+    <script>
+        function setImage(url) {
+            document.getElementById(img-responsive).setAttribute("src", url);
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+<br>
+<center>
+<h1>About Us</h1>
+</center>
+
+<div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+    <!-- guide here: https://getbootstrap.com/docs/4.5/components/card/#card-decks -->
+
+    <!-- member data -->
+        <center>
+        <h2>Who We Are</h2>
+        <p> Leabhar is a book review website made for all the readers around the globe. Our aim is to help people find, share and recommend the books that they enjoy.</p>
+        <br>
+        <br>        
+        <h2>Meet the people behind Leabhar</h2>
+        <p> We are a group of Third Year Computer Applications Students from Dublin City University. We are just trying to survive the year and hope to make it to Fourth Year.</p>
+        </center>
+        <br>
+        <br>
+        
+
+            <div class="col mb-4 member-data">
+                <img class="member-img" src="static/images/erika.jpg" alt="Erika Rellermo">
+                       <h3>Erika Rellermo</h3>
+                       <p>
+                        I like movies and reading, and my favourite genre so far is fantasy. I also like food, making things, and playing games :)
+                       </p>
+            </div>
+        
+            <div class="col mb-4 member-data">
+            <img class="member-img" src="static/images/sgtVinny.JPG" alt="Vincent Achukwu">
+                    <h3>Vincent Achukwu</h3>
+                    <p>
+                    I'm 6'5' and enjoying the weather up here. Half Russian and half Nigerian. Make YouTube videos (so subscribe RIGHT NOW!). Play club and college basketball. I can do the splits if that sounds cool.
+                    </p>
+            </div>
+
+            <div class="col mb-4 member-data">
+                <img class="member-img" src="static/images/joanna.jpg" alt="Joanna Talvo">
+                        <h3>Joanna Talvo</h3>
+                        <p>The oldest in the group ('98 represent). I'm interested in books about mystery and crime. I'm a Taekwondo Blackbelt - don't ya dare make my friends cry! I talk 24/7. Fil-Am (half-Filipino, half-Amazing). I play the guitar (but I can't sing 🙁)
+                        </p>
+            </div>
+
+            <div class="col mb-4 member-data">
+                <img class="member-img" src="static/images/chloe.jpg" alt="Chloe Ward">
+                        <h3>Chloe Ward</h3>
+                        <p>I love watching Netflix and Youtube videos. I also have a very strong passion for food, not a passion for making food but a passion for eating it e.g. chocolate, pizza and especially pasta 😂 My favourite genre is romance.
+                        </p>
+            </div>
+
+            <div class="col mb-4 member-data">
+                <img class="member-img" src="static/images/niall.jpg" alt="Niall Bermingham">
+                        <h3>Niall Bermingham</h3>
+                        <p>I'm Niall and I like horses!
+                        </p>
+            </div>
+
+            </div>
+<br>
+
+{% endblock body %}

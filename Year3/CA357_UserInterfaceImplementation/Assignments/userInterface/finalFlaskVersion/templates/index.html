@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Leabhar</title>
+    <style>
+        .cooltext {
+            text-align: center;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cooltext span {
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .text1{
+            color: black;
+            font-size: 50px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            position: relative;
+            animation: text 3s 1;
+        }
+
+        .text2{
+            font-size: 80px;
+            color: #a5ab66;
+            font-family: 
+        }
+
+        @keyframes text {
+            0% {
+                color: #a5ab66;
+                margin-bottom: -40px;
+            }
+            30% {
+                letter-spacing: 25px;
+                margin-bottom: -40px;
+            }
+            85% {
+                letter-spacing: 8px;
+                margin-bottom: -40px;
+            }
+        }
+
+        .quotesslides{
+            display: none;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap');
+
+        font-family: 'Source Sans Pro', sans-serif;
+    </style>
+
+{% endblock %}
+{% block body %}
+    <br>
+    
+    <div class="cooltext">
+        <span class="text1">Welcome to</span>
+        <span class="text2">leabhar </span>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="card bg-transparent text-white text-right">
+            <img src="{{ url_for('static', filename = 'images/bookShelvesIdea.jpg') }}" class="img-fluid" style="height: 280px; opacity: 0.6;">
+            <div class="card-img-overlay">
+                <h4 class="card-title" style="padding-top: 30;">Looking for something to read?</h4>
+                <p class="card-text ml-auto text-left" style="width: 35%; padding: 5 5; background-color: rgb(146, 146, 146, 0.7);">
+                    You may also wonder what your friends are reading. Great news, 
+                    Leabhar is the place to be! Tell us your favourite books, authors, 
+                    or genres and we will provide you with some insightful 
+                    recommendations. Ask, and you shall receive.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    
+    <!--BOOKS OF THE MONTH SECTION-->
+    <h2 class="text-center">Books of the Month</h2>
+    <br>
+    <br>
+        <div class="row text-center">
+        {% for item in books %}
+            {% if item.bookID < 5 %}
+                <div class="col mb-4">
+                    <a href="/books/book/{{ item.bookID }}">
+                        <img src="{{ item.thumbnailUrl }}" alt="Book Info" style="width: 180px">
+                    </a>
+
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+    <br>
+    <br>
+
+
+    <h2 class="text-center">Recommended Books</h2>
+    <br>
+    <br>
+        <div class="row text-center">
+        {% for item in books %}
+            {% if item.bookID >= 5 %}
+                <div class="col mb-4">
+                    <a href="/books/book/{{ item.bookID }}">
+                        <img src="{{ item.thumbnailUrl }}" alt="Book Info" style="width: 180px">
+                    </a>
+
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+    <br>
+    <br>
+
+    <h2 class="text-center">Book Quotes of the Month</h2>
+    <br>
+
+    <!--QUOTES SLIDES-->
+    <div class="quotesslides text-center">
+        <h4><i>“You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. You’re on your own. And you know what you know. And YOU are the one who’ll decide where to go…”</i></h4>
+        <h4><i><b> Oh, the Places You’ll Go! Dr Seuss </b></i></h4>
+    </div>
+
+    <div class="quotesslides text-center">
+        <h4><i>“It matters not what someone is born, but what they grow to be.”</i></h4>
+        <h4><i><b> Harry Potter and the Goblet of Fire, J.K. Rowling </b></i></h4>
+    </div>
+
+    <div class="quotesslides text-center">
+        <h4><i>“You don't get to choose if you get hurt in this world...but you do have some say in who hurts you. I like my choices.”</i></h4>
+        <h4><i><b>The Fault in Our Stars, John Green </b></i></h4>
+    </div>
+
+    <div class="quotesslides text-center">
+        <h4><i>“It’s the possibility of having a dream come true that makes life interesting.”</i></h4>
+        <h4><i><b> The Alchemist, Paulo Coelho </b></i></h4>
+    </div>
+
+    <div class="quotesslides text-center">
+        <h4><i>“You never really understand a person until you consider things from his point of view … Until you climb inside of his skin and walk around in it.”</i></h4>
+        <h4><i><b> To Kill A Mockingbird, Harper Lee</b></i></h4>
+    </div>
+
+    <script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+    var i;
+    var x = document.getElementsByClassName("quotesslides");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 4000); 
+    }
+    </script>
+
+{% endblock %}

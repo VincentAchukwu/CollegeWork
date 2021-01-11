@@ -1,0 +1,172 @@
+<!DOCTYPE html5>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <!-- Icon logo -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/logo.png') }}">
+        
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+       <!-- Custom CSS -->
+        <link id="css-style1" rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/dark_mode/main.css') }}">
+        <link id="css-style2" rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/dark_mode/bookspage8.css') }}">
+
+        <!-- Boostrap CSS link -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% block head %}{% endblock %}
+       
+        <!-- for light/dark mode -->
+        <script>
+            var theme = 0;
+            // set theme to 1 for light and 0 for dark
+            // starts on 0 as our basic theme is the dark theme
+            function swapStyleSheet(){
+                if (theme === 1){
+                    document.getElementById('css-style1').setAttribute("href", "{{url_for('static', filename = 'css/dark_mode/main.css')}}");
+                    document.getElementById('css-style2').setAttribute("href","{{url_for('static', filename = 'css/dark_mode/bookspage8.css')}}" );
+                    theme = 0;
+                } else { 
+                    document.getElementById('css-style1').setAttribute("href", "{{url_for('static', filename = 'css/light_mode/main.css')}}");
+                    document.getElementById('css-style2').setAttribute("href","{{url_for('static', filename = 'css/light_mode/bookspage8.css')}}" );
+                    theme = 1;
+                }
+            }
+        </script>
+
+    </head>
+    <!-- just an idea.. -->
+    <!-- <body style="background: url({{ url_for('static', filename = 'images/bookShelvesIdea.jpg') }}); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;"> -->
+
+    <body id="background">
+               
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark font-weight-bold">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <!-- Logo -->
+                    <img class="img-responsive" src="{{ url_for('static', filename = 'images/darkMode2.png') }}">
+                </a>
+                
+                
+                <form method="POST" action="/searchResults">
+                    <div class="input-group" style="width: 300; top: 8;">
+                        <input class="form-control py-2" type="search" placeholder="Search..." id="example-search-input" name="query">
+                        <button class="btn btn-outline-warning" type="submit">
+                            <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav mr-auto justify-content-end flex-grow-1">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/books">Books</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/forums">Forums</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            {% if not current_user.is_authenticated %}
+                            <a class="dropdown-item" href="/register">Register</a>
+                            <a class="dropdown-item" href="/login">LogIn</a>
+                            {% else %}
+                            <a class="dropdown-item" href="/logout">LogOut</a>
+                            {% endif %}
+                            </div>
+                        <li class="nav-item">
+                        <!-- toggles the light and dark mode of the webpage by loading a different style sheet -->
+                        <button type="button" class="btn" onclick="swapStyleSheet();" style="color:white;">Light/Dark Mode</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for categories, message in messages %}
+                    <div class="alert alert-{{ categories }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+       
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <!-- footer -->
+<div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h5> Quick Links</h5>
+                    <br>
+                    <a class=footer-top href="/about" style="padding-bottom:20px; font-size: 17px">About us</a>
+                    <br>
+                    <a class=footer-top href="/contact" style="padding-bottom:30px;font-size: 17px;">Contact us</a>
+     
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body socials">
+                    <h5 class="card-title">Connect With Us</h5>
+                    
+                        <p class="card-text">Be sure to stay up to date by following us on all of our socials below!</p>
+
+                   
+                        <li>
+                            <a href="/"><i class="fa fa-facebook-square" style="color: black"></i></a>
+                        </li>
+                        <li>
+                            <a href="/"><i class="fa fa-instagram" style="color: black"></i></a>
+                        </li>
+                        <li>
+                            <a href="/"><i class="fa fa-twitter" style="color: black"></i></a>
+                        </li>
+                        <li>
+                            <a href="/"><i class="fa fa-youtube-play" style="color: black"></i></a>
+                        </li>
+                        <br>
+                        <br>
+                    
+                </div>
+            </div>
+            
+           
+        </div>
+        <!-- link in the bottom of the footer -->
+        <div class="footer-bottom">
+            &copy; Leabhar | CA357 Group 22
+        </div>
+
+        <!-- jQuery and JS bundle w/ Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

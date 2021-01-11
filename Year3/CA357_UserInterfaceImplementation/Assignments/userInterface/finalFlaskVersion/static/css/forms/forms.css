@@ -1,0 +1,24 @@
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip { 
+display: block;
+} 
+.invalid-feedback {
+display: none;
+width: 100%;
+margin-top: 0.25rem;
+font-size: 0.875em;
+color: #dc3545;
+}
+
+.form-check-inline .form-check-input ~ .invalid-feedback {
+margin-left: 0.5em;
+}
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip { 
+display: block;
+}  
+

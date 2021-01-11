@@ -1,0 +1,158 @@
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.hovered {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #628395;}
+.bar-4 {width: 30%; height: 18px; background-color: #628395;}
+.bar-3 {width: 10%; height: 18px; background-color: #628395;}
+.bar-2 {width: 4%; height: 18px; background-color: #628395;}
+.bar-1 {width: 15%; height: 18px; background-color: #628395;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  /* Hide the right column on small screens */
+  .right {
+    display: none;
+  }
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+body {
+    margin: 5%; 
+    text-align: center;
+    background: #111;
+    color: white;
+}
+h1 {
+    font-size: 2em; 
+    margin-bottom: .5rem;
+}
+
+/* Ratings */
+.rate {
+    display: inline-block;
+    border: 0;
+    height: 100px;
+    padding: 0 20px;
+}
+
+.rate > input {
+    display: none;
+}
+
+.rate > label {
+    float: right;
+}
+/* The star of the show */
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: .3rem .2rem;
+    margin: 0;
+    cursor: pointer;
+    font-family: FontAwesome;
+    content: "\f005 "; /* full outline of the star*/
+}
+/* Zero stars rating */
+.rate > label:last-child:before {
+    content: "\f006 "; /* empty star from font awesome outlines */
+}
+/* TO GET THE HALF STARS */
+.rate .half:before {
+    content: "\f089 "; /* CODE FROM FONT AWESOME */
+    position: absolute;
+    padding-right: 0;
+}
+/* hovering over stars*/
+input:checked ~ label,
+label:hover, label:hover ~ label { color: #ebdc15;  }
+
+/* HIGHLIGHTS */
+input:checked + label:hover, input:checked ~ label:hover,
+input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label  { color: #fbff00;  }
+
+
+.button-group {
+  margin-bottom: 20px;
+}
+
+/* applies only to review container */
+.review-container {
+  width: 520px;
+  margin-top: 20px;
+}
+
+
+.counter {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+.posts {
+  clear: both;
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+.posts li {
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  min-height: 42px;
+}
+

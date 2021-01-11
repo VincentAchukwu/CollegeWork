@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Books</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <center>
+    <h1>Books Available</h1>
+    </center>
+    <br>
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+        <!-- guide here: https://getbootstrap.com/docs/4.5/components/card/#card-decks -->
+
+        <!-- tiled or list view? -->
+        <!-- <div class="card mb-3"> -->
+        <div class="row row-cols-1 row-cols-md-4">
+            {% for item in books %}
+            <!-- make page per book (links to home for now) -->
+                <!-- <div class="row no-gutters"> -->
+                <div class="col mb-4">
+                    <!-- <div class="col-md-4" style="max-width: 15%;"> -->
+                    <div class="card">
+                        <a href="/books/book/{{ item.bookID }}">
+                        <!-- <a href="/"> -->
+                            <img src="{{ item.thumbnailUrl }}" class="card-img-top" alt="Book Info" style="width: 100%; height: 200px;">
+                        </a>
+                    <!-- if including col-md-4 -->
+                    <!-- </div> -->
+                        <!-- fix inconsitent card heights? -->
+                        <div class="card-body">
+                            <a href="/books/book/{{ item.bookID }}">
+                            <h5 class="card-title"> {{ item.title }}</h5>
+                            </a>
+                            {% if item.shortDescription == "No description available" and item.longDescription %}
+                                <p class="card-text"> {{ item.longDescription[:70] }}... </p>
+                            {% else %}
+                                <p class="card-text"> {{ item.shortDescription[:70] }}... </p>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!-- <hr> -->
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+
+{% endblock %}
+

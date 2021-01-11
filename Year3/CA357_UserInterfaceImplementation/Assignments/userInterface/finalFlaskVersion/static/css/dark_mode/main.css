@@ -1,0 +1,114 @@
+
+/* website bg */
+#background {
+background: #454545 ;
+}
+
+body {
+    margin: 5%; 
+    text-align: center;
+    color: white !important;
+    font-family: Bookman !important;
+    /* background: #111; */
+}
+
+.jumbotron {
+    background: rgba(102, 100, 100, 0.9) !important;
+}
+  
+h1,h2,h3 {
+    color: orange;
+    font-size: 2em; 
+    margin-bottom: .5rem;
+}
+
+/* heading for span items*/
+.heading {
+    color: orange;
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+
+  /*######## Navbar ########*/
+/* options in navbar */
+.nav-item {
+    padding: 0 5;
+}
+
+/* dropdown */
+.navbar-nav a:hover:not(.dropdown-item){
+    background-color: orange;
+    /*some effect when uncommenting this and commenting transition
+    padding: 10px 10px;*/
+    transition: 0.3s;
+}
+
+
+.navbar-nav > li {
+    text-align: center;
+}
+
+.input-group {
+    left: 20;
+}
+
+
+/*######## Body ########*/
+/*.head-text {
+    padding: 20px 0;
+}*/
+
+.img-responsive {
+    height: 30;
+}
+
+.member-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:250px;
+    height:250px;
+    border-radius: 50%;
+}
+
+.member-data {
+    text-align: center;
+}
+
+
+/*######## Footer ########*/
+/* target only DIRECT li children of classes */
+.card .socials > li {
+    position: relative;
+    float: none;
+    display: inline-block;
+    padding: 0 9%;
+    font-size: 25px;
+}
+
+.card, .socials {
+    color: white;
+    background-color: #454545 !important;
+}
+
+.footer-top {
+    color: white;
+}
+
+/* footer */
+.footer-bottom {
+    background: #454545;    /* hardcoded AF to match header colour...*/
+    color: orange;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 14px;
+}
+
+body,h1,h2,h3,p {
+    font-family: Bookman !important;
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- contents of page for displaying user's name -->
+    <title>Search: {{ query }}</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>
+        <span>
+            Results for
+        </span>
+        <span class="font-italic">
+            "{{ query }}"
+        </span>
+    </h1>
+    <br>
+
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+
+        <!-- NOW PUT THESE AS LIST/CARDS -->
+
+        <!-- if query not empty -->
+        {% if query %}
+            <!-- if there are matching results, display them -->
+            {% if matches %}
+                <!-- <div class="card mb-3"> -->
+                <div class="row row-cols-1 row-cols-md-4">
+                    {% for match in matches %}
+                    <!-- make page per book (links to home for now) -->
+                        <!-- <div class="row no-gutters"> -->
+                        <div class="col mb-4">
+                            <!-- <div class="col-md-4" style="max-width: 15%;"> -->
+                            <div class="card">
+                                <a href="/books/book/{{ match.bookID }}">
+                                <!-- <a href="/"> -->
+                                    <img src="{{ match.thumbnailUrl }}" class="card-img-top" alt="Book Info" style="width: 100%; height: 200px;">
+                                </a>
+                            <!-- if including col-md-4 -->
+                            <!-- </div> -->
+                                <!-- fix inconsitent card heights? -->
+                                <div class="card-body">
+                                    <a href="/books/book/{{ match.bookID }}">
+                                    <h5 class="card-title"> {{ match.title }}</h5>
+                                    </a>
+                                    <small>{{", ".join(match.authors)}}</small>
+                                    {% if match.shortDescription == "No description available" and match.longDescription %}
+                                        <p class="card-text"> {{ match.longDescription[:70] }}... </p>
+                                    {% else %}
+                                        <p class="card-text"> {{ match.shortDescription[:70] }}... </p>
+
+                                    {% endif %}
+                                </div>
+                            <!-- comment this out too if using list view -->
+                            </div>
+                        </div>
+                        <!-- <hr> -->
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h4>No results for "{{ query }}"</h4>
+            {% endif %}
+        <!-- else display that empty query was not found -->
+        {% else %}
+            <h4>No results for "{{ query }}"</h4>
+        {% endif %}
+    </div>
+
+{% endblock %}

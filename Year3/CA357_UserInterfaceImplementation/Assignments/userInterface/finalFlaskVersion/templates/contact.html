@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Contact Us</title>
+    <style>
+    #contact {
+        text-align: center;
+        margin-top: 20px;
+
+    }
+
+    .form-specs {
+        width: 400px;
+        margin: 20px 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        border-bottom: 2px;
+        margin-bottom: 16px;
+    }
+
+    .fc1 {
+        border-bottom: 2px solid black;
+        
+    }
+
+    .fc2 {
+        border-bottom: 2px solid black;
+        
+    }	
+
+    .f3 {
+        border-bottom: 2px solid black;
+        
+    }	
+
+    .fc4 {
+        border-bottom: 2px solid black;
+        
+    }	
+
+    .submit-button {
+        background: white;
+        border-color: transparent;
+        color: black;
+        text-transform: uppercase;
+        font-size: 15px;
+        letter-spacing: 1px;
+        height: 50px;
+        margin-top: 20px;
+    }
+    
+    </style>
+
+{% endblock %}
+
+{% block body %}
+        <br>
+        <br>
+        <br>
+		<section id="contact" class="contact-me container">
+            <div class="container-content">
+                <div class="content">
+                        <center><h3>Get in touch with us!</header></center>
+						<center>
+						<p>
+                            <input id="contact-name" type="text" name="contact-name" class="form-specs fc1" placeholder="Name" />
+                        </p>
+                        <p>
+                            <input id="contact-email" type="email" name="contact-email" class="form-specs fc2" placeholder="Email Address" /> </p>
+                        <p>
+                            <textarea id="contact-message" name="contact-message" class="form-specs fc4" placeholder="Message" rows="5"></textarea>
+                        </p>
+                        <p>
+                            <a class="submit-button" href="/contact_submit">
+                            <input type="submit" class="submit-button" value="submit" /> </p>
+                            </a>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

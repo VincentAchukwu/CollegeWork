@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>New Post</title> 
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>New Post</h1>
+    <hr>
+        <!-- Page for creation of new forum post via POST -->
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+
+        <h3>Create New Forum Post:</h3>
+        <br>
+        <form action='/forums' method='POST'>
+
+            <!-- user enters title of the forum post -->
+            <label for="title">Title:</label>
+            <input class="form-control" type="text" name='title' id='title' placeholder="Title..." aria-label="Enter Title">
+            <br>
+
+            <!-- user enters their name (optional) -->
+            <label for="author">Author:</label>
+            {% if current_user.is_authenticated %}
+            <input class="form-control" type="text" name='author' id='author' value="{{ current_user.username }}" aria-label="Enter Author">
+            {% else %}
+                <input class="form-control" type="text" name='author' id='author' placeholder="Author (Optional)..." aria-label="Enter Author">
+            {% endif %}
+                <br>
+
+            <!-- user enters text for forum -->
+            <label for="content">Post:</label>
+            <textarea class="form-control" name='content' id="content" placeholder="What's on your mind..." aria-label="Enter Content" rows="3"></textarea>
+            <br>
+
+            <button class="btn btn-success mr-3" type="submit">
+                Post <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+            <!-- <input class="btn btn-success" type='submit' value='Post'> -->
+            </button>
+            <a href="/forums" class="btn btn-secondary" type="submit">
+                Cancel <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+            </a>
+
+        </form>
+        <hr>
+    </div>
+
+{% endblock %}
+

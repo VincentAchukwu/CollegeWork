@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Forums</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <!-- keeping heading and button on same line -->
+    <div>
+        <center><h1 style="display:inline">Forum Posts</h1></center>
+        <a style="display:inline" class="btn btn-success float-right" href="/forums/new">
+            New Post <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </a>
+    </div>
+
+    <br>
+
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+
+        <hr>
+        <!-- generating all forums in the database via loop -->
+        <!-- first check if there are posts to displayy -->
+        {% if posts %}
+
+            {% for post in posts %}
+                <h2>{{ post.title }}</h2>
+                <!-- if author name is there, display it -->
+                {% if post.author %}
+                    <small class="font-italic"> Author: {{ post.author }}
+                    </small>
+                <!-- else we display them as "Anonymous" -->
+                {% else %}
+                    <small class="font-italic"> Author: Anonymous
+                    </small>
+                {% endif %}
+                <br>
+                <!-- formatting the date and time for better readability -->
+                <small class="font-italic">
+                    {% set strDate = post.date_posted.strftime("%b %d %Y %I:%M:%S %p").split() %}
+                    Date: {{ " ".join(strDate[:-2]) }}
+                    <br>
+                    Time: {{ " ".join(strDate[-2:]) }}
+                </small>
+
+                <br>
+                <br>
+
+                <!-- the content of the forum post -->
+                <!-- pre-wrap preserves the newlines if entered by user (i.e can have paragraphs, etc) -->
+                <!-- ALSO if it looks nice, add this to p tag -->
+                <!-- class="jumbotron" "rgba(186, 186, 186, 0.8); padding: 2% 2%; -->
+                <p style="white-space:pre-wrap">{{ post.content }}</p>
+                <br>
+                <!-- user can edit or delete posts via the post id -->
+                <a class="btn btn-info mr-3" href='/forums/edit/{{post.id}}'>Edit</a>
+                <a class="btn btn-danger" href='/forums/delete/{{post.id}}'>Delete</a>
+
+                <br>
+                <br>
+                <hr>
+
+            {% endfor%}
+
+        <!-- else there are no posts, display this message -->
+        {% else %}
+            <h2>Nothing to see here... </h2>
+
+        {% endif %}
+    </div>
+
+    <!-- added this here for ease-of-access -->
+    <div>
+        <a style="display:inline-block;" class="btn btn-success float-right" href="/forums/new">
+            New Post <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </a>
+    </div>
+
+        <br>
+        <br>
+        <br>
+
+
+{% endblock %}

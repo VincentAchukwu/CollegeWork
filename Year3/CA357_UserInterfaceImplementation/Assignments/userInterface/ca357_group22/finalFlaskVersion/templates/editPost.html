@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Edit Post</title> 
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Editing Post</h1>
+
+    <hr>
+    <!-- Page for editing a forum post -->
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+
+        <h2>Edit:</h2>
+        <br>
+        <!-- placing in the current version of the post we want to edit -->
+        <!-- updates new version via /edit route -->
+        <form action='/forums/edit/{{post.id}}' method='POST'>
+            <!-- post.title = the current title -->
+            <label for="title">Title:</label>
+            <input class="form-control" type="text" name='title' id='title' value="{{ post.title }}" placeholder="Title..." aria-label="Enter Title">
+            <br>
+
+            <!-- post.author = the current author -->
+            <label for="author">Author:</label>
+            <input class="form-control" type="text" name='author' id='author' value="{{ post.author }}" placeholder="Author (Optional)..." aria-label="Enter Author">
+            <br>
+
+            <!-- post.content = the current content of post -->
+            <label for="content">Post:</label>
+            <textarea class="form-control" name='content' id="content" aria-label="Enter Content" rows="3" placeholder="What's on your mind...">{{ post.content }}</textarea>
+            <br>
+
+            <button class="btn btn-success mr-3" type="submit">
+                Save <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+            <!-- <input type='submit' value='Save'> -->
+            </button>
+
+            <a href="/forums" class="btn btn-secondary" type="submit">
+                Cancel <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+            </a>
+
+        </form>
+        <hr>
+    </div>
+
+{% endblock %}

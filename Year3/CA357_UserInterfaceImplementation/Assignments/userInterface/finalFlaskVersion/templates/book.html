@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>{{ book.title }}</title> 
+{% endblock %}
+
+{% block body %}
+    <br>
+    <!-- <h1>{{ book.title }}</h1> -->
+    <h1>Book</h1>
+
+    <hr>
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+        <br>
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4" style="max-width: 20%;">
+                    <img src="{{ book.thumbnailUrl }}" class="card-img-top" alt="Book Info">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Card title</h5> -->
+                        <h3 class="card-title">{{ book.title }}</h3>
+                        <small>by {{ ", ".join(book.authors) }}</small>
+                        <br>
+                        <br>
+                        <small>
+                            Published: {{ book.publishedDate }}
+                            <br>
+                            {{ book.audio }}
+                            <br>
+                            ISBN: {{ book.isbn }}
+                            <br>
+                            Page Count: {{ book.pageCount }}
+                            <br>
+                            {{ book.Availble }}
+                        </small>
+                        <br>
+                        <br>
+
+                        {% if book.shortDescription == "No description available" and book.longDescription %}
+                            <small class="card-text"> {{ book.longDescription }}</small>
+                        {% else %}
+                            <small class="card-text"> {{ book.shortDescription }}</small>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- add reviews here... -->
+
+            <h1>Leave this book a review!</h1>
+
+            <fieldset class="rate">
+                <input type="radio" id="r10" name="rating" value="10" /><label for="r10" title="5 stars"></label>
+                <input type="radio" id="r9" name="rating" value="9" /><label class="half" for="r9" title="4 1/2 stars"></label>
+                <input type="radio" id="r8" name="rating" value="8" /><label for="r8" title="4 stars"></label>
+                <input type="radio" id="r7" name="rating" value="7" /><label class="half" for="r7" title="3 1/2 stars"></label>
+                <input type="radio" id="r6" name="rating" value="6" /><label for="r6" title="3 stars"></label>
+                <input type="radio" id="r5" name="rating" value="5" /><label class="half" for="r5" title="2 1/2 stars"></label>
+                <input type="radio" id="r4" name="rating" value="4" /><label for="r4" title="2 stars"></label>
+                <input type="radio" id="r3" name="rating" value="3" /><label class="half" for="r3" title="1 1/2 stars"></label>
+                <input type="radio" id="r2" name="rating" value="2" /><label for="r2" title="1 star"></label>
+                <input type="radio" id="r1" name="rating" value="1" /><label class="half" for="r1" title="1/2 star"></label>
+                <p> Try our new half star feature!<p>
+            </fieldset>
+
+            <div class="container review-container">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control status-box" rows="2" placeholder="Type your review here!"></textarea>
+                    </div>
+                </form>
+                <div class="button-group pull-right">
+                    <p class="counter">300</p>
+                    <a href="#" class="btn btn-primary review-post">Post</a>
+                </div>
+            
+                <ul class="posts">
+                </ul>
+            </div>
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="{{url_for('static', filename='js/review.js')}}"></script>
+        </div>
+
+        <span class="heading">Readers average rating</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star-o checked"></span>
+        <p>4.3 average rating based on users reviews.</p>
+        <hr style="border:3px solid #f1f1f1">
+
+        <div class="row">
+            <div class="side">
+                <div>5 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-5"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>150 votes</div>
+            </div>
+            <div class="side">
+                <div>4 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-4"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>63 votes</div>
+            </div>
+            <div class="side">
+                <div>3 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-3"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>15 votes</div>
+            </div>
+            <div class="side">
+                <div>2 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-2"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>6 votes</div>
+            </div>
+            <div class="side">
+                <div>1 star</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-1"></div>
+                </div>
+            </div>
+            <div class="side right">
+                <div>20 votes</div>
+            </div>
+        </div>
+        <hr>
+        <!-- to include or not to include hardcoded reviews? -->
+        <div class="jumbotron" style="padding: 3% 3%;">
+        <h3>Reviews</h3>
+        <hr>
+        {% for rev in reviews %}
+            {% if bID == rev["bookID"] %}
+                <small class="font-italic">
+                    Name: {{ rev["name"] }}
+                    <br>
+                    Date: {{ rev["date"] }}
+                    <br>
+                    Time: {{ rev["time"] }}
+                    <br>
+                    Rating:
+                    {% set numStars = rev["stars"] %}
+                    {% set roundedNumStars = (rev["stars"])|round|int %}
+                    {% for i in range(5) %}
+                        {% if i < roundedNumStars %}
+                            <span class="fa fa-star checked"></span>
+                        {% elif i == roundedNumStars and numStars != roundedNumStars %}
+                            <span class="fa fa-star-half-o checked"></span>
+                        {% else %}
+                            <span class="fa fa-star-o checked"></span>
+                        {% endif %}
+                    {% endfor %}
+                </small>
+                <br>
+                <br>
+                <p>{{ rev["comment"] }}</p>
+                <hr>
+            {% endif %}
+        {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,155 @@
+[
+    {
+        "reviewID": 0,
+        "bookID": 0,
+        "name": "Vinny",
+        "date": "Dec 07 2020",
+        "time": "04:01:37 PM",
+        "comment": "The flow wasn't for me, felt inconsistent",
+        "stars": 2.5
+    },
+    {
+        "reviewID": 1,
+        "bookID": 1,
+        "name": "Ricardo",
+        "date": "Jul 20 2019",
+        "time": "10:41:10 PM",
+        "comment": "Interesting, highly recommend",
+        "stars": 4
+    },
+    {
+        "reviewID": 2,
+        "bookID": 2,
+        "name": "Pewds",
+        "date": "Dec 07 2020",
+        "time": "09:45:00 AM",
+        "comment": "This was amazing. I might buy 100 more... It's useful for those who plan to start developing with Android",
+        "stars": 5
+    },
+    {
+        "reviewID": 3,
+        "bookID": 4,
+        "name": "Bob",
+        "date": "Oct 3rd 2020",
+        "time": "10:10:37 PM",
+        "comment": "Not the best, but I reckon it's ok for beginners",
+        "stars": 3.5
+    },
+    {
+        "reviewID": 4,
+        "bookID": 6,
+        "name": "Alice",
+        "date": "Feb 12 2020",
+        "time": "12:00:00 PM",
+        "comment": "The audible version came in handy!",
+        "stars": 5
+    },
+    {
+        "reviewID": 5,
+        "bookID": 3,
+        "name": "Tommy",
+        "date": "Mar 21 2018",
+        "time": "04:41:10 PM",
+        "comment": "Right, I got this book online, and I must say, wow..",
+        "stars": 4.5
+    },
+    {
+        "reviewID": 6,
+        "bookID": 2,
+        "name": "Mary",
+        "date": "Aug 25 2018",
+        "time": "12:25:25 PM",
+        "comment": "Didn't like it",
+        "stars": 1
+    },
+    {
+        "reviewID": 7,
+        "bookID": 9,
+        "name": "Anthony",
+        "date": "Mar 12 2019",
+        "time": "12:25:25 AM",
+        "comment": "All Software engineers must read this!",
+        "stars": 5
+    },
+    {
+        "reviewID": 8,
+        "bookID": 8,
+        "name": "Lucy",
+        "date": "April 4 2020",
+        "time": "01:11:30 PM",
+        "comment": "As a student developer, this has helped me learn so much more. Highly recommend to students. Thanks",
+        "stars": 5
+    },
+    {
+        "reviewID": 9,
+        "bookID": 7,
+        "name": "JJ",
+        "date": "Nov 30 2018",
+        "time": "09:15:10 AM",
+        "comment": "If there was an audible version that would've been great.",
+        "stars": 3.5
+    },
+    {
+        "reviewID": 10,
+        "bookID": 5,
+        "name": "Molly",
+        "date": "Jul 5 2020",
+        "time": "08:20:40 PM",
+        "comment": "I did not enjoy this, it felt off. Definitely better ones out there",
+        "stars": 0
+    },
+    {
+        "reviewID": 11,
+        "bookID": 5,
+        "name": "Arthur",
+        "date": "Nov 19 2018",
+        "time": "06:13:50 PM",
+        "comment": "It was decent, at least there's the audible version.",
+        "stars": 3
+    },
+    {
+        "reviewID": 12,
+        "bookID": 0,
+        "name": "Linda",
+        "date": "Feb 12 2020",
+        "time": "10:45:31 AM",
+        "comment": "It wasn't very easy to understand for beginners.",
+        "stars": 0.5
+    },
+    {
+        "reviewID": 13,
+        "bookID": 3,
+        "name": "Scarlett",
+        "date": "Sept 18 2019",
+        "time": "10:40:24 PM",
+        "comment": "Nice, I liked it. Authors put a lot into this!",
+        "stars": 5
+    },
+    {
+        "reviewID": 14,
+        "bookID": 4,
+        "name": "Mick",
+        "date": "Dec 2 2020",
+        "time": "12:39:02 PM",
+        "comment": "I found this surprisingly useful, looking to read some more on this!",
+        "stars": 4.5
+    },
+    {
+        "reviewID": 15,
+        "bookID": 6,
+        "name": "John",
+        "date": "Jan 8 2019",
+        "time": "09:50:02 AM",
+        "comment": "Good. I liked it, highly suggest it to students starting out in this field of study.",
+        "stars": 4.5
+    },
+    {
+        "reviewID": 16,
+        "bookID": 7,
+        "name": "Folabi",
+        "date": "Aug 25 2019",
+        "time": "06:22:59 PM",
+        "comment": "It was good, but does it have an audible version? I like multitasking.",
+        "stars": 3.5
+    }
+]

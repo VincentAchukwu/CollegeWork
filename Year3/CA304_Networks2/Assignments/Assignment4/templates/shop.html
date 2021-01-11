@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- contents of shop page -->
+    <title>Mos Eisley Cantina</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/cart.png') }}">
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Saber Store</h1>
+    <hr>
+    <!-- reducing opacity of div background -->
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+        <!-- displaying products via loop -->
+        {% for item in products %}
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.content }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+    <br>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- contents of form test page -->
+    <title>Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/r2d2.png') }}">
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Force Training</h1>
+    <br>
+
+    <form action="/formtest" method="POST">
+        <!-- reducing opacity of div background and its width -->
+        <div class="jumbotron" style="width: 50%; background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+            {% if message %}
+                <h5>{{ message }}</h3>
+            {% endif %}
+            <label>Name:</label>
+            <input class="form-control" type="text" name="username" placeholder="Name...">
+            <small class="form-text">You will be redirected to a page displaying your name and greeted by General Kenobi.</small>
+            <br>
+            <button class="btn btn-warning" type="submit">Login
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </form>
+
+{% endblock %}

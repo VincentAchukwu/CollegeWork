@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- contents of home page -->
+    <title>Home</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/deathStar.png') }}">
+{% endblock %}
+{% block body %}
+    <br>
+    <h1 class="display-4">A Surprise To Be Sure, But A Welcome One!</h1>
+    <br>
+    <!-- reducing opacity of div background -->
+    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+        <h1 class="display-5">A Long Time Ago, In A Galaxy Far Far Away....</h1>
+        <p class="lead">Quote of the day: "I don't like sand.."</p>
+        <hr class="my-4">
+        <p>Hello there... and welcome to the Force Hideout!</p><p>The navbar links will lead you to your desired destinations, such as the form test, displaying the allegiances in JSON/table format, and also some extra features such as Blog posts (using sqlite database). This is where us Jedi and Sith hide.</p><p>We are currently in a Blog War, and you are our only hope.</p>
+        <p>May the force be with you, always...</p>
+        <!-- <a class="btn btn-primary btn-lg" href="/posts" role="button">Witness Blog Wars</a> -->
+    </div>
+    
+
+{% endblock %}

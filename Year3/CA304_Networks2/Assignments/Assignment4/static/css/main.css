@@ -1,0 +1,12 @@
+/* reverse color of h1 text based on its background */
+h1 {
+    color: white;
+    mix-blend-mode: difference;
+}
+
+/* hover effect on all tabs in navbar except items in dropdown menu */
+.navbar-nav a:hover:not(.dropdown-item){
+    background-color: black;
+    transition: 0.3s;
+    border-radius: 7%;
+}

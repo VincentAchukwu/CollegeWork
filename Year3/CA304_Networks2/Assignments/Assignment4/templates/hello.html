@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- contents of page for displaying user's name -->
+    <title>Greeting</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/kenobi.png') }}">
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Kenobi's Response</h1>
+    <br>
+
+    <div class="jumbotron" style="width: 50%; background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+
+    {% if message %}
+        <h4>{{ message }}</p>
+    {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{
+    "Luke Skywalker": {
+        "Name": "Luke Skywalker",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Darth Vader": {
+        "Name": "Darth Vader",
+        "Affiliation": "Sith",
+        "Allegiance": ""
+    },
+    "Obi-Wan Kenobi": {
+        "Name": "Obi-Wan Kenobi",
+        "Affiliation": "Jedi",
+        "Allegiance": "TO THE REPUBLIC, TO DEMOCRACY!"
+    },
+    "Anakin Skywalker": {
+        "Name": "Anakin Skywalker",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Yoda": {
+        "Name": "Yoda",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Palpatine": {
+        "Name": "Palpatine",
+        "Affiliation": "Sith",
+        "Allegiance": ""
+    },
+    "Qui-Gon Jinn": {
+        "Name": "Qui-Gon Jinn",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Jar Jar Binks": {
+        "Name": "Jar Jar Binks",
+        "Affiliation": "N/A",
+        "Allegiance": "Possible Sith"
+    },
+    "Darth Maul": {
+        "Name": "Darth Maul",
+        "Affiliation": "Sith",
+        "Allegiance": ""
+    },
+    "Mace Windu": {
+        "Name": "Mace Windu",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Ki-Adi-Mundi": {
+        "Name": "Ki-Adi-Mundi",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Kit Fisto": {
+        "Name": "Kit Fisto",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Eeth Koth": {
+        "Name": "Eeth Koth",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Plo Koon": {
+        "Name": "Plo Koon",
+        "Affiliation": "Jedi",
+        "Allegiance": ""
+    },
+    "Dooku": {
+        "Name": "Dooku",
+        "Affiliation": "Sith",
+        "Allegiance": ""
+    }
+}

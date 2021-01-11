@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- contents of allegiance dashboard page -->
+    <title>Allegiance Dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/vader.png') }}">
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>Jedi and Sith Legends</h1>
+    <br>
+
+    <!-- Extra link to provide user accessibility for allegiances in JSON -->
+    <a href="/allegiances" class="btn btn-warning">Allegiance JSON
+        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    </a>
+
+    <br>
+    <br>
+    <br>
+    <h5 class="text-white font-weight-bold font-italic">Table of force users, their affiliation, and allegiance(s)</h5>
+    <br>
+    <!-- reducing opacity of table background -->
+    <table class="table table-dark table-bordered table-striped table-hover" style="background: rgba(0, 0, 0, 0.9);">
+
+        <thead>
+            <!-- hardcoding RGB values to match "table-warning" colour (using
+                table-warning made it lighter for some reason) -->
+            <tr class=" text-dark" style="background: rgba(252, 186, 3);">
+                <th scope="col">Rank of Master</th>
+                <th scope="col">Name</th>
+                <th scope="col">Affiliation</th>
+                <th scope="col">Allegiance</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for name in jediOrSith %}
+                <tr>
+
+                    <th scope="row">{{ loop.index }}</th> 
+                {% for k,v in jediOrSith[name].items() %}
+                    {% if v == "" %}
+                        <td>{{ "N/A" }}</td>
+                    {% else %}
+                        <td>{{ v }}</td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+
+{% endblock %}

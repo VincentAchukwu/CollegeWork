@@ -1,0 +1,97 @@
+
+.card {
+  width: 4em;
+}
+
+.card-clickable {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-left: -0.5em;
+  transition: transform 0.1s, margin-top 0.1s;
+}
+.card-clickable:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: rotate(0deg) !important;
+  margin-top: -2em !important;
+  margin-bottom: 0;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.game {
+  height: 100vh;
+  display: grid;
+  grid-template-areas:  "header header header"
+                        "left top right"
+                        "left bottom right"
+                        "footer footer footer";
+  grid-template-rows: 4em 1fr 1fr 10em;
+}
+.player-top {
+  grid-area: top;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.player-left {
+  grid-area: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.player-right {
+  grid-area: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.player-bottom {
+  grid-area: bottom;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.player-name {
+  display: flex;
+  margin-top: 0.5em;
+}
+.player {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em;
+}
+.header {
+  grid-area: header;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-win {
+  background-color: #28a745;
+  color: white;
+}
+.header-lost {
+  background-color: #bd2130;
+  color: white;
+}
+.footer {
+  grid-area: footer;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3em;
+  transition: all 0.3s ease-in-out;
+}
+.footer-withdrawn {
+  padding-top: 8em;
+    opacity: 0.3;
+}

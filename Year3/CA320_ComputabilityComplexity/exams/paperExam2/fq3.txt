@@ -1,0 +1,18 @@
+3.1)
+The PDA is deterministic because there isn't more than one possible course of
+action given the same start state, current input symbol, and current item on the 
+top of the stack. The rules are all unique for each state.
+For it to be non-deterministic, we need to have the same from-state and input symbol 
+that leads to multiple to-states
+
+3.2)
+It is rejected. The following computation is of the format: input tape, reader 
+header position, current state, current stack content.
+
+aba, a, q0, []
+aba, b, q1, [A]
+aba, a, q1, [A,B]
+aba, e, q2, [A]
+
+It is rejected since although we end up in the final state, the stack is not empty. 
+It seems to always add an extra B each time (for abba also).

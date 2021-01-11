@@ -1,0 +1,10 @@
+6.1)
+-- reverse a list
+reverseIt :: [Int] -> [Int]
+reverseIt [] = []
+reverseIt (x:xs) = (reverseIt xs) ++ [x]
+
+-- Explanation:
+-- given a list of integers, if the list is empty, we return an empty list, else we 
+-- create a new list in reverse order by calling the function on the current tail and
+-- appending the current head each time until we reach the base case

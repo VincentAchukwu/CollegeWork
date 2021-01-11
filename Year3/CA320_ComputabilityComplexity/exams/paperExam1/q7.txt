@@ -1,0 +1,6 @@
+7.1)
+This FSA is NFA since from q0, we can read symbol "a" and end up in states q0 or 
+q1, which makes it have multiple paths to the to-state.
+
+7.2)
+The machine accepts the regular expression a*b*abb

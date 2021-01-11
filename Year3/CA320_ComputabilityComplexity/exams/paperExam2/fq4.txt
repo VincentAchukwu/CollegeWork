@@ -1,0 +1,11 @@
+4.1)
+The language that the Turing Machine accepts is the following:
+L = {a^nb^nc^n | n >= 0}
+This means that the number of a's, b's, and c's must all be equal, and greater than 
+or equal to zero.
+
+4.2)
+Since the string can be of size n (including zero), the complexity of the Turing 
+Machine is T(n) where n is the amount of times the reader header has to move. If it 
+has to go back to the start of the computation, it becomes 2n, then 3n, and so on.
+Therefore the complexity is T(n).

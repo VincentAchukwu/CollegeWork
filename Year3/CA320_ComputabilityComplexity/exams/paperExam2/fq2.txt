@@ -1,0 +1,15 @@
+2.1)
+Below are the TM situations in order of the computations:
+1. (e, q0, a, ba)
+2. (e, q1, b, ba)
+3. (b, q0, b, a)
+4. (b, q1, a, a)
+5. (ba, q0, a, e)
+6. (ba, q1, b, e)
+7. (bab, q0, #, e)
+8. (bab, q1, #, e)
+
+Turing Machines have no finals state(s) and therefore, they accept strings by 
+halting after a finite number of moves and no rule is applicable for the last 
+entered state (i.e. there is no rule for state q1 and current symbol being #, 
+so it halts)

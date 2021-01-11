@@ -1,0 +1,4 @@
+5.1)
+Derivation of the string "aabbbb":
+
+S -> aA -> aaA -> aabbB -> aabbbB -> aabbbb

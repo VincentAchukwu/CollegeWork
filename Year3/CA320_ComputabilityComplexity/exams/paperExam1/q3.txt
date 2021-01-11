@@ -1,0 +1,15 @@
+3.1)
+The grammar that generates the language can be expressed like this:
+
+S -> aA
+A -> aA
+A -> bbB
+B -> bB
+B -> b
+
+This allows for even number of a's and b's
+
+3.2)
+S -> aA -> aaA -> aabbB -> aabbbB -> aabbbb
+
+This works since there are even number of a's and b's

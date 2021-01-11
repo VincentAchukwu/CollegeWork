@@ -1,0 +1,3 @@
+6.1)
+This FSA accepts strings with an even number of b's and c's. In this case, seen as 
+there are no arrows pointing towards q2 (except q1), this FSA accepts strings with total of 2 b's and 2 c's in it.

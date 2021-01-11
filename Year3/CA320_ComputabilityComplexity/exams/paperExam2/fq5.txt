@@ -1,0 +1,11 @@
+5.1)
+The language that the Context-free grammar generates is the following:
+L = {a^nb^n | n >= 0}
+What this is saying is that the language accepts empty strings or strings with the 
+same number of a's as b's (where a's come before b's). Example strings include 
+{"", "ab", "aabb", "aaabbb", .... a^nb^n}
+
+5.2)
+Since this is Context-free grammar, it is Type-2 grammar since the left-hand side 
+of each rule is a non-terminal and the right-hand side has terminals and 
+non-terminals

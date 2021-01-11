@@ -1,0 +1,27 @@
+7.1)
+This is known as the Halting problem, and there is no program that can take in the 
+code of any computer program and decide if that program will ever stop running, as 
+Alan Turing stated.
+
+An everyday example of this is when you are installing something on a machine and 
+the progress bar reaches 99% and you keep waiting for it to finish. But you 
+do not know how much longer to wait (an hour, a day, a year...). This is what makes 
+the Halting problem undecidable, as it can run forever without halting.
+
+Using the Proof by Contradiction to prove the undecidability of the Halting Problem,
+lets say we have a Halting detector function (using Python pseudocode) defined by 
+haltDetector(func, i) which can detect if func(i) loops or halts. Assume we have 
+another function as follows:
+
+test(func):
+    if (haltDetector(func, func))): // if it is a loop
+        return // halt it
+    else:
+        loop()  // loop it
+
+Lets say we do test(test), if the haltDetector thinks test(test) will loop, test 
+will halt. Likewise if test(test) loops, this happens because haltDetector thinks 
+that test halts when it is run on test.
+
+In essence, the haltDetector does the opposite and provides the wrong answer, and 
+this is why the Halting Problem cannot be solved.

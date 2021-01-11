@@ -1,0 +1,27 @@
+1.1)
+- Grammar: {
+            S->aSb,
+            S->ab
+            }
+
+- Example: derivation of "aabb":
+            S -> aSb -> aabb
+
+- Type of language/grammar: I believe the grammar describes Type-2 Context-free grammar, since the rules are of the form A -> psi, where left-hand-side (A) is 
+non-terminal, right-hand-side (psi) is terminal and non-terminal
+
+1.2)
+- Grammar: {
+            S->aaAB,
+            A->aA,
+            A->"",
+            B->bbbB,
+            B->""
+            }
+
+- Example: derivation of "aaabbb":
+            S -> aaAB -> aaaAB -> aaaB -> aaabbbB -> aaabbb
+
+- Type of language/grammar: I believe the grammar describes Type-1 Context-sensitive 
+grammar as the rules suggest that they are non-shrinking. In all cases, there must 
+be at least two a's (i.e when n is 0, there are two a's and zero b's)

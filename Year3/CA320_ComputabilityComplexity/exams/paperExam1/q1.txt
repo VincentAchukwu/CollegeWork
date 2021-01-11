@@ -1,0 +1,7 @@
+1.a)
+PDA is accepted by Type-2 grammar, which are deterministic context-free langauges
+
+1.b)
+The left hand side of the rules must contain non-terminal, and the right hand side 
+must contain terminals and non terminals. The rules are of the form "A -> psi", 
+where A is non terminal, psi is terminal and non-terminal.

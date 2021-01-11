@@ -1,0 +1,15 @@
+4.1)
+It does not generate regular language since the left hand side also consists of 
+terminals. Regular languages must have non-terminals on the left side, and either 
+a terminal on the right side or a terminal followed by a single non-terminal.
+
+4.2)
+It is not context free since the left side has terminal and non-terminal.
+Context free must have non-terminal on the left, and terminal + non-terminal on the 
+right side
+
+4.3)
+It is context sensitive as the rule states in type 1 grammars:
+Alpha, some non-terminal, and Beta yields alpha, psi, and Beta,
+where psi is not empty, but alpha and Beta can be empty. Context sensitive grammars 
+are also non-shrinking.

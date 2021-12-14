@@ -1,0 +1,9 @@
+void func ()
+{
+    return ();
+}
+
+main
+{
+    func ();
+}

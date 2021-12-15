@@ -1,0 +1,8 @@
+GCD of two numbers when one of them can be very large:
+    - https://www.geeksforgeeks.org/gcd-of-two-numbers-when-one-of-them-can-be-very-large-2/
+
+How to read a file using Files.readAllBytes() in Java:
+    - https://attacomsian.com/blog/java-files-readallbytes-example
+
+Get current file path in Java:
+    - https://stackoverflow.com/questions/1480398/java-reading-a-file-from-current-directory

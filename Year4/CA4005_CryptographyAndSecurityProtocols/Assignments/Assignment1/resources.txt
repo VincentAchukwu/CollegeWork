@@ -1,0 +1,17 @@
+Get current file path in Java:
+    - https://stackoverflow.com/questions/1480398/java-reading-a-file-from-current-directory
+
+Java AES Password-Based Encryption:
+    - https://stackoverflow.com/questions/992019/java-256-bit-aes-password-based-encryption/992413#992413
+
+Java Cipher guide:
+    - http://tutorials.jenkov.com/java-cryptography/cipher.html
+
+How to read a file using Files.readAllBytes() in Java:
+    - https://attacomsian.com/blog/java-files-readallbytes-example
+
+No suitable method found for write(String):
+    - https://stackoverflow.com/questions/19509271/no-suitable-method-found-for-writestring
+
+Byte array with padding of null bytes at the end: how to efficiently copy to smaller byte array:
+    - https://stackoverflow.com/questions/17003164/byte-array-with-padding-of-null-bytes-at-the-end-how-to-efficiently-copy-to-sma

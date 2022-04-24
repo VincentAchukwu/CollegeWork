@@ -1,0 +1,33 @@
+<html>
+
+	<head>
+	</head>
+
+	<body>
+
+		<h2>Welcome {{researcher}}!</h2>
+
+		<h3>Please enter your reseach proposal</h3>
+
+		<form method="POST">
+		 	<label for="acronym">Project Acronym:</label><br>
+		 	<input type="text" id="acronym" name="acronym"><br>
+		 	<label for="title">Project Title:</label><br>
+		 	<input type="text" id="title" name="title"><br>
+		 	<label for="desc">Project Description:</label><br>
+		 	<input type="text" id="desc" name="desc"><br>
+		 	<label for="funding">Requested Amount of Funding:</label><br>
+		 	<input type="text" id="funding" name="funding"><br>
+		 	<input type="submit" value="Submit">
+		</form>
+
+		<!-- display proposal message after they submit (accepted/rejected) -->
+		{%if proposal != ""%}
+			<p>{{proposal}}</p>
+			<!-- if accepted, provide url to dcu page to display projects -->
+			<a href="http://127.0.0.1:5002/login">Click to view your proposals</a>
+		{%endif%}
+
+	</body>
+
+</html>

@@ -1,0 +1,10 @@
+modelCount 8
+dealershipCount 3
+warehouseCap 5
+trailerCap 3
+maxPools 1
+washing 1000
+electro 1200
+sanding 1400
+priming 1600
+painting 2000

@@ -1,0 +1,99 @@
+<html>
+
+	<head>
+		<!-- Boostrap CSS link -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+        <!-- jQuery and JS bundle w/ Popper.js -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+        
+		<!-- Fontawesome icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+	<body>
+
+		
+		<!-- if user exists, json_object is passed through -->
+		{% if json_object %}
+			<h2>Researchers</h2>
+			<table class="table">
+				<tr style="font-weight: bold;">
+					<td>acronym</td>
+					<td>title</td>
+					<td>desc</td>
+					<td>funding</td>
+					<td>name</td>
+					<td>other_researchers</td>
+				</tr>
+			{% for proposal in json_object %}
+				<tr>
+					<td>{{ proposal["acronym"] }}</td>
+					<td>{{ proposal["title"] }}</td>
+					<td>{{ proposal["desc"] }}</td>
+					<td>{{ proposal["funding"] }}</td>
+					<td>{{ proposal["name"] }}</td>
+					<td>{{ proposal["other_researchers"] | join(", ") }}
+					</td>
+				</tr>
+			{% endfor %}
+			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<h2>Withdraw Funding</h2>
+			<form method="POST" id="funding">
+
+				<label for="projects">Choose Project:</label><br>
+				<input list="projects" name="project">
+				<datalist id="projects">
+					{% for proposal in json_object %}
+						<option value={{ proposal["title"] }}>
+					{% endfor %}
+				</datalist><br>
+
+				<label for="amount"> Choose Amount:</label><br>
+				<input type="number" id="amount" name="amount"><br>
+
+				<input type="hidden" id="name" name="name" value={{ json_object[0]["name"] }}>
+				<input type="hidden" id="withdraw" name="withdraw" value="withdraw">
+				<input type="submit">
+			</form>
+			
+			<h2>Add/Remove Member</h2>
+			<form method="POST" id="addRemoveMember">
+
+				<label for="projects">Choose Project:</label><br>
+				<input list="projects" name="project">
+				<datalist id="projects">
+					{% for proposal in json_object %}
+						<option value={{ proposal["title"] }}>
+					{% endfor %}
+				</datalist><br>
+
+				<label> Add or Remove Member? </label><br>
+				<input list="addOrRemoveOptions" name="addOrRemove">
+				<datalist id="addOrRemoveOptions">
+					<option value="Add">
+					<option value="Remove">
+				</datalist><br>
+
+				<label for="amount"> Add/Remove Member:</label><br>
+				<input id="member" name="member"><br>
+
+				<input type="hidden" id="name" name="name" value={{ json_object[0]["name"] }}>
+				<input type="hidden" id="addRemoveMember" name="addRemoveMember" value="addRemoveMember">
+				<input type="submit">
+			</form>
+		<!-- else, display error message -->
+		{% else %}
+			<h2>Invalid Request</h2>
+		{% endif %}
+
+
+	</body>
+
+</html>

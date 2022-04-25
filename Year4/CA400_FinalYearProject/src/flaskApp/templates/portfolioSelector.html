@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>Portfolio Coin Selection</title>
+    {% endblock %}
+    {% block body %}
+
+        <h2>Portfolio Selector</h2>
+        <p>Select one or more coins to view their market statistics</p>
+        <br>
+        <a href="/" class="btn btn-warning">Back</a>
+        <br>
+        <br>
+        <form class="form" method="POST" action="/portfolioSummary">
+            <div class="form-group jumbotron" style="width: 51%; background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+                <span class="input-group-addon">Please select one or more cryptocurrencies</span>
+                <br>
+                <br>
+                <div class="form-inline">
+                    <div class="input-group">
+                        <!-- allow user to select multiple cryptocurrencies to display in portfolio -->
+                        <select name="selectedCoins" class="selectpicker" multiple data-actions-box="true" 
+                        data-live-search="true" data-size="4.5">
+                            {% for coin in cryptoCoins %}
+                                <option value="{{ coin }}">{{ coin }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning">View Portfolio</button>
+                </div>
+            </div>
+        </form>
+        <!-- script enables the bootstrap-select dropdown -->
+        <script>
+            $(document).ready(function(){
+                $(".selectpicker").selectpicker();
+            });
+        </script>
+    {% endblock %}

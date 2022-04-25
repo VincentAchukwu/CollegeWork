@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>{{ coinName }} Forecast</title>
+    {% endblock %}
+    {% block body %}
+
+        <h2>{{ coinName }} Price Prediction</h2>
+        <br>
+        <a href="/selectPrediction" class="btn btn-warning">Back</a>
+
+                <div class="col-6">
+                    <div class="card h-100">
+                        <h2>Buy/Sell Signal</h2>
+                        <br>
+                        <!-- if current price lower than predicted price, might be buying opportunity  -->
+                        {% if currentPrice < predictedPrice %}
+                            <p>Since the <strong>current price</strong> of {{ coinName }} is <strong>lower</strong> than the <strong>predicted price</strong> (<strong>a possible {{ percentageDifference }}% profit</strong>),
+                                now might be a good time to <strong style="color: green;">buy</strong> {{ coinName }}.
+                            </p>
+                        <!-- else it's higher, so it might be a good time to sell before it dips -->
+                        {% else %}
+                            <p>Since the <strong>current price</strong> of {{ coinName }} is <strong>higher</strong> than the <strong>predicted price</strong> (<strong>a possible {{ percentageDifference }}% loss</strong>),
+                                now might be a good time to <strong style="color: red;">sell</strong> {{ coinName }}.
+                            </p>
+                        {% endif %}
+                        <div style="text-align: center; width: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                            <div>
+                                <br>
+                                <p>Current price: €{{ currentPrice }}</p>
+                                <p>Predicted price: €{{ predictedPrice }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+ <img src="data:image/png;base64,{{ preds }}"style="float:left; cursor:pointer; cursor:hand; border:0" width="800" height="500" alt="Prediction Graph for"+{{coinName}}>
+        </div>
+<br>
+ <img src="data:image/png;base64,{{ fig2 }}"style="cursor:pointer; cursor:hand; border:0" width="800" height="500" alt="Prediction Graph for"+{{coinName}}>
+<br>
+
+
+        <br>
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}

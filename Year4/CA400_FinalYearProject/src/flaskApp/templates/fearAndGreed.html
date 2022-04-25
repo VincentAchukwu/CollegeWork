@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>Crypto Fear & Greed Index</title>
+    {% endblock %}
+    {% block body %}
+
+        <h2>Crypto Fear and Greed</h2>
+        <br>
+        <a href="/" class="btn btn-warning">Back</a>
+        <br>
+        <br>
+
+        <div class="container">
+
+            <!-- displaying fear and greed index info via cards -->
+            <div class="row">
+
+                <!-- card 1: displaying fear and greed index -->
+                <div class="col-4">
+                    <a href="https://cryptofeargreed.io/" target="_blank">
+                        <div class="card h-100">
+                            <img src="{{ todaysGraph }}">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- card 2: displaying historic fng values -->
+                <div class="col-4">
+                    <div class="card h-100">
+                        <h2>Historical Values</h2>
+                        <div>
+                            <!-- iterating over historicValues and displaying them in divs -->
+                            {% for timePeriod, fng in historicValues.items() %}
+                                <!-- setting variables for fear and greed value and classification -->
+                                {% set fngValue = fng[0] %}
+                                {% set fngMeaning = fng[1] %}
+
+                                <!-- assigning colour to  fngvalues depending on the fng value itself -->
+                                <div style="display: flex; justify-content: space-between; padding: 13px 8px; border-bottom: solid; border-bottom-width: 1px;">
+                                    <div>
+                                        <span>{{ timePeriod }}</span>
+                                        <br>
+                                        <!-- guide for fng value ranges
+                                        extreme fear = 0-25
+                                        fear = 26-46
+                                        neutral = 47-54
+                                        greed = 55-75
+                                        extreme greed = 76-100 -->
+                                        <span style="font-weight: bold;"
+                                            {% if 0 <= fngValue <= 25 %} class="red"
+                                            {% elif 26 <= fngValue <= 46 %} class="orange"
+                                            {% elif 47 <= fngValue <= 54 %} class="gold"
+                                            {% elif 55 <= fngValue <= 75 %} class="lightgreen"
+                                            {% else %} class="limegreen"
+                                            {% endif %}>{{ fngMeaning }}</span>
+                                    </div>
+                                    <span style="font-weight: bold; font-size: 150%;" class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x"
+                                            {% if 0 <= fngValue <= 25 %} style="color: red;"
+                                            {% elif 26 <= fngValue <= 46 %} style="color: orange;"
+                                            {% elif 47 <= fngValue <= 54 %} style="color: gold;"
+                                            {% elif 55 <= fngValue <= 75 %} style="color: lightgreen;"
+                                            {% else %} style="color: limegreen;"
+                                            {% endif %}></i>
+                                            <span class="fa fa-stack-1x fa-inverse" style="font-family: sans-serif">{{ fngValue }}</span>
+                                    </span>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3: displaying real-time countdown for when fng updates for next day -->
+                <div class="col-4">
+                    <div class="card h-100">
+                        <h2>Next Update</h2>
+                        <div>
+                            <div style="text-align: center; width: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <div style="font-weight: bold;">
+                                    The next update will happen in:
+                                </div>
+                                <div>
+                                    <br>
+                                    <p id="timer"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+            <!-- real-time countdown of when fear and greed index will next update, 
+            some snippets from: https://www.codegrepper.com/code-examples/javascript/javascript+display+seconds+as+minute+and+hours -->
+            <script>
+                function startTimer(timeUntilUpdate, display) {
+
+                    var timer = timeUntilUpdate, hours, minutes, seconds;
+
+                    setInterval(function () {
+
+                        // converting seconds left to hours, minutes, then seconds
+                        hours = parseInt(timer % (3600*24) / 3600, 10);
+                        minutes = parseInt(timer % 3600 / 60, 10);
+                        seconds = parseInt(timer % 60, 10);
+
+                        // applying singular/plural noun to time depending on each time value
+                        var hDisplay = hours > 0 ? hours + (hours == 1 ? " hour, " : " hours, ") : "";
+                        var mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minute, " : " minutes, ") : "";
+                        var sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " second" : " seconds") : "";
+
+                        // display time left
+                        document.getElementById("timer").innerHTML = hDisplay + mDisplay + sDisplay;
+
+                        // if timer hits 0, refresh page so the backend will call API to obtain secondsLeft again
+                        if (--timer < 0) {
+                            location.reload(true);
+                        }
+                    }, 1000);
+                }
+
+                // calling the timer function with secondsLeft passed from backend 
+                window.onload = function () {
+                    var timeUntilUpdate = "{{ secondsLeft }}",
+                        display = document.querySelector("#timer");
+                    startTimer(timeUntilUpdate, display);
+                };
+
+            </script>
+
+        </div>
+
+        <br>
+        <div class="text-center text-white">
+            <span>Data Source: </span>
+            <span><a class="text-white" href="https://alternative.me/crypto/fear-and-greed-index" target="_blank">https://alternative.me/crypto/fear-and-greed-index</a></span>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+    {% endblock %}

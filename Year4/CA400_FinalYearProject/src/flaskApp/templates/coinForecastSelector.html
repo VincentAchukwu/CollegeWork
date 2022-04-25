@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+    {% block head %}
+
+    <title>Forecast Coin Selection</title>
+    {% endblock %}
+    {% block body %}
+
+
+<div class="content">
+        <h2>Coin Forecaster</h2>
+
+        <br>
+        <a href="/" class="btn btn-warning">Back</a>
+        <br>
+        <br>
+        <form class="form" method="POST" action="/prediction">
+            <div class="form-group jumbotron" style="width: 51%; background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+                <span class="input-group-addon">Please select a cryptocurrency and the number of days into the future</span>
+                <br>
+                <br>
+                <div class="form-inline">
+                    <div class="input-group" style="width: 50%;">
+                        <select name="selectedCoin" class="selectpicker form-control" 
+                        data-live-search="true" data-size="6">
+                            {% for coin in cryptoCoins %}
+                                <option value="{{ coin }}">{{ coin }}</option>
+                            {% endfor %}
+                        </select>
+                        <select name="daysSelected" class="selectpicker form-control"
+                        data-live-search="true" data-size="6">
+                            {% for i in range(1, 71) %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning" value="Submit" onclick="loading();">
+                          <div id="loading"></div>
+View Prediction</button>
+
+                </div>
+            </div>
+        </form>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  function loading(){
+      $("#loading").show();
+      $("#content").hide();
+  }
+</script>
+
+</div>
+    {% endblock %}

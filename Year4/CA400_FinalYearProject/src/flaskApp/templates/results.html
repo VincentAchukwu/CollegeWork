@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Search: {{ query }}</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+
+    <div>
+        <!-- if response not empty/valid -->
+        {% if response %}
+            <h2>
+                <span>
+                    <!-- if a filter was applied to the search, display it in the header -->
+                    {% if selectedFilter %}
+                        {{ selectedFilter }} results for
+                    {% else %}
+                    <!-- else (for the inital search, since user can't apply filter until seeing results) 
+                        just show the search string -->
+                        Results for
+                    {% endif %}
+                </span>
+                <span class="font-italic">
+                    "{{ query }}"
+                </span>
+            </h2>
+            <br>
+            <form class="form-inline" method="POST" action="/searchResults">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Sort By</span>
+                        <select name="selectedFilter" class="selectpicker form-control">
+                            {% for filter in filterOptions %}
+                            <option value="{{ filter }}">{{ filter }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Apply</button>
+                </div>
+            </form>
+
+            <div class="card mb-3" style="opacity: 0.9;">
+                {% for match in response %}
+                    <div class="row no-gutters">
+                        <div class="col-md-4" style="max-width: 22%;">
+                            <a href="{{ match['url'] }}" target="_blank">
+                            {% if match['urlToImage'] != None %}
+                                <img src="{{ match['urlToImage'] }}" class="card-img-top mx-auto" alt="News Info">
+                            {% else %}
+                                <p class="card-img-top" alt="News Info" style="width: 100%;">
+                                    Image not available.
+                                </p>
+                            {% endif %}
+                            </a>
+                        </div>
+
+                        <!-- fix inconsitent card heights? -->
+                        <div class="card-body" style="max-width: 78%;">
+                            <span style="color:#808080">
+                                <small>
+                                    {{ match['source']['name'] }}
+                                    <i aria-hidden="true">•</i>
+                                    {{ match['publishedAt'] }}
+                                </small>
+                            </span>
+
+                            <a href="{{ match['url'] }}" target="_blank">
+                            <h5 class="card-title"> {{ match['title'] }}</h5>
+                            </a>
+
+                            <p class="card-text"> {{ match['description'] }} </p>
+
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+
+        <!-- else display that empty/invalid query was not found -->
+        {% else %}
+            <h2>No results for "{{ query }}"</h2>
+        {% endif %}
+    </div>
+
+{% endblock %}

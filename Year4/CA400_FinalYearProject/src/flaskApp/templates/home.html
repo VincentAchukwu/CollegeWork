@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>Home</title>
+    {% endblock %}
+    {% block body %}
+
+        <br>
+        <h1>Home Page</h1>
+        <br>
+        <div class="jumbotron" style="opacity: 0.9; padding: 3% 3%;">
+
+            <div>
+                <div style="display: inline-block; vertical-align: top;">
+                    <a href="/selectPrediction" class="btn btn-warning">Coin Forecast</a>
+                    <br>
+                    <br>
+                    <a href="/selectSentiment" class="btn btn-warning">Market sentiment</a>
+                    <br>
+                    <br>
+                    <a href="/fng" class="btn btn-warning">Fear & Greed Index</a>
+                    <br>
+                    <br>
+
+                </div>
+
+                <!-- Crypto Converter Widget -->
+                <div class="offset-md-2" style="display: inline-block; width: 38%;">
+                    <p style="text-align: center;">Crypto Converter</p>
+                    <crypto-converter-widget shadow symbol live background-color="#383a59" border-radius="0.66rem"
+                    fiat="euro" crypto="bitcoin" amount="1" font-family="inherit"
+                    decimal-places="2">
+                    </crypto-converter-widget>
+                </div>
+            </div>
+            
+            <br>
+            <h1>Market Overview</h1>
+            <br>
+            <small style="font-weight: bold;">Prices are shown in Dollar (USD)</small>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                {
+                    "width": 1000,
+                    "height": 490,
+                    "defaultColumn": "overview",
+                    "screener_type": "crypto_mkt",
+                    "displayCurrency": "EUR",
+                    "colorTheme": "dark",
+                    "locale": "en"
+                }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+            <br>
+            <br>
+
+            <script async src="https://cdn.jsdelivr.net/gh/dejurin/crypto-converter-widget@1.5.2/dist/latest.min.js"></script>
+        </div>
+        
+    {% endblock %}

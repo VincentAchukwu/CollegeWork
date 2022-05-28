@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>Crypto Fear & Greed Index</title>
+    {% endblock %}
+    {% block body %}
+
+        <h2>Technical Analysis</h2>
+        <br>
+        <a href="/" class="btn btn-warning">Back To Homepage</a>
+<br>
+
+
+<div style="background-color: #000000; color: #FFFFFF; padding: 10px;">This gauge displays a real-time technical analysis overview for your selected timeframe. The summary of Bitcoin to USD is based on the most popular technical indicators, such as Moving Averages, Oscillators and Pivots. Click "BTCUSD" for more graphs</div>
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for BTCUSD</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+  {
+  "interval": "1m",
+  "width": "100%",
+  "isTransparent": false,
+  "height": "100%",
+  "symbol": "COINBASE:BTCUSD",
+  "showIntervalTabs": true,
+  "locale": "en",
+  "colorTheme": "dark"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+    {% endblock %}

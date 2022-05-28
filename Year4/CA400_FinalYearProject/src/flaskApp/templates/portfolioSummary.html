@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+    {% block head %}
+    <title>Portfolio Summary</title>
+    {% endblock %}
+    {% block body %}
+
+        <h2>Portfolio Summary</h2>
+        <br>
+        <!-- option for user to go back and edit portfolio -->
+        <a href="/portfolioSelector" class="btn btn-warning">Edit Portfolio</a>
+        <!-- if user selected at least 1 cryptocurrency, display portfolio -->
+        {% if tradingViewSymbols|length > 0 %}
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="height: 90%">
+                <div id="tradingview_fc468"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    var convertedSymbols = {{ tradingViewSymbols | tojson }};
+                    new TradingView.widget(
+                    {
+                        "autosize": true,
+                        "symbol": convertedSymbols[0],
+                        "interval": "D",
+                        "timezone": "Etc/UTC",
+                        "theme": "dark",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "withdateranges": true,
+                        "hide_side_toolbar": false,
+                        "allow_symbol_change": true,
+                        "watchlist": convertedSymbols,
+                        "details": true,
+                        "hotlist": true,
+                        "calendar": true,
+                        "studies": [
+                        "MACD@tv-basicstudies",
+                        "MASimple@tv-basicstudies",
+                        "RSI@tv-basicstudies",
+                        "TripleEMA@tv-basicstudies"
+                        ],
+                        "container_id": "tradingview_fc468"
+                    }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        <br>
+<br>
+
+        <!-- else display error message -->
+        {% else %}
+            <div class="jumbotron" style="width: 51%; background: rgba(255, 255, 255, 0.9); padding: 3% 3%;">
+                <p>Invalid selection! Please go back and select at least one cryptocurrency.</p>
+            </div>
+        {% endif %}
+    {% endblock %}

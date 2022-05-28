@@ -1,0 +1,195 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'images/cryptoLogo2.png') }}">
+
+        <!-- Custom css -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css') }}">
+
+        <!-- Boostrap CSS link -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+        <!-- Fontawesome icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% block head %}{% endblock %}
+    </head>
+
+
+    <!-- adding background image for every page -->
+    <body style="background:url({{ url_for ('static', filename = 'images/background.jpg') }});
+            	width: 100%;
+	            background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;">
+
+        <!-- creating navbar -->
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="/">CoinCast</a>
+
+                <form method="POST" action="/searchResults">
+                    <div class="input-group" style="width: 370; top: 8; margin-left: 60;">
+                        <input class="form-control py-2" type="search" placeholder="Search for crypto news..." id="example-search-input" name="query">
+                        <button class="btn btn-outline-warning" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active font-weight-bold">
+                            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/selectPrediction">Coin Forecast</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/selectSentiment">Market Sentiment</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crypto Tools
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" id="Cryptocurrency tools"aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"href="/fng">Fear & Greed Index</a>
+                                <a class="dropdown-item"href="/portfolio">Portfolio</a>
+                                <a class="dropdown-item" href="/technicalAnalysis">Technical Analysis</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- each page will have this container in their body -->
+        <div class="container">
+            {% block body %}{% endblock %}
+
+            <!-- including crypto footer widget across all pages so users are up to date with prices, 
+            it shows the top 25 cryptocurrencies real-time info -->
+            <footer class="fixed-bottom">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                        {
+
+                        "symbols": [
+                            {
+                                "description": "",
+                                "proName": "BINANCE:BTCEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:ETHEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:BNBEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:XRPEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:LUNAEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:ADAEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:SOLEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:AVAXEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:DOTEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:DOGEEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:SHIBEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:MATICEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:ATOMEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:LTCEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:NEAREUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:LINKEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:UNIEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:TRXEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:BCHEUR"
+                            },
+                            {
+                                "description": "",
+                                "proName": "BINANCE:XLMEUR"
+                            }
+                        ],
+                        "showSymbolLogo": true,
+                        "colorTheme": "dark",
+                        "isTransparent": false,
+                        "displayMode": "regular",
+                        "locale": "en"
+                        }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </footer>
+        </div>
+
+        <!-- jQuery and JS bundle w/ Popper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+        <!-- scripts for bootstrap-select -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<!--[if IE]>
+<script src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+<![endif]-->
+    </body>
+</html>
